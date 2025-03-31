@@ -6,12 +6,12 @@ interface Message {
   candidate_id: string;
   raw_content: string;
   create_time: string;
-  tti_image_rel_path: {}; // No message have this but it exists as a prop
+  tti_image_rel_path: Record<string, never>; // No messages have this but it exists as a property
 }
 
 type MessageData = Message[];
 
-async function extractData(messageData: MessageData): Promise<void> {
+export async function extractData(messageData: MessageData): Promise<void> {
   const chatIdSet: Set<string> = new Set();
   const candidateIdSet: Set<string> = new Set();
 
